@@ -1,0 +1,19 @@
+services:
+  nginx:
+    build: .
+    image: fvg-nginx
+    container_name: fvg-nginx
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    restart: unless-stopped
+    networks:
+      - app-network
+
+# The backend and frontend containers live in their own compose files /
+# `docker run` commands. They just need to join this same network so nginx
+# can reach them by container name (frontend:3000, backend:3001).
+networks:
+  app-network:
+    external: true
+    name: app-network
