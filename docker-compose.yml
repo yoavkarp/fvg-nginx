@@ -4,8 +4,7 @@ services:
     image: fvg-nginx
     container_name: fvg-nginx
     ports:
-      - "3000:3000"
-      - "3001:3001"
+      - "80:80"
     restart: unless-stopped
     networks:
       - app-network
