@@ -19,4 +19,5 @@ jobs:
             sudo systemctl start docker || true
             cd ~/fvg-nginx
             git pull origin main
+            docker network create app-network
             sudo docker compose up --build -d
