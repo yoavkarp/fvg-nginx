@@ -21,3 +21,5 @@ jobs:
             git pull origin main
             docker network create app-network
             sudo docker compose up --build -d
+            docker network connect app-network fvg-server
+            docker network connect app-network fvg-client
